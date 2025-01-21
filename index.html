@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-blue-500 to-purple-600 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Search Bar -->
+        <div class="max-w-md mx-auto mb-8">
+            <div class="relative flex items-center">
+                <input type="text" 
+                       id="cityInput" 
+                       class="w-full px-6 py-3 rounded-full bg-white/20 backdrop-blur-md text-white placeholder-white/70 outline-none focus:ring-2 focus:ring-white/50"
+                       placeholder="Search for a city...">
+                <button id="searchBtn" title="Search"
+                        class="absolute right-2 p-2 rounded-full hover:bg-white/20 text-white transition-all">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Weather Card -->
+        <div id="weatherInfo" class="max-w-4xl mx-auto opacity-0 transform translate-y-4 transition-all duration-500">
+            <div class="bg-white/20 backdrop-blur-md rounded-3xl p-8 text-white shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Current Wgit eather -->
+                    <div class="text-center md:text-left">
+                        <h2 id="cityName" class="text-4xl font-bold mb-2">Loading...</h2>
+                        <p id="dateTime" class="text-lg opacity-90 mb-6"></p>
+                        <div class="flex items-center justify-center md:justify-start">
+                            <img id="weatherIcon" src="" alt="Weather Icon" class="w-20 h-20 mr-4">
+                            <div>
+                                <h1 id="temperature" class="text-6xl font-bold">--°C</h1>
+                                <p id="weatherDescription" class="text-xl capitalize">--</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weather Details -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-black/20 p-4 rounded-xl">
+                            <p class="text-sm opacity-70">Feels Like</p>
+                            <p id="feelsLike" class="text-lg font-bold">--°C</p>
+                        </div>
+                        <div class="bg-black/20 p-4 rounded-xl">
+                            <p class="text-sm opacity-70">Humidity</p>
+                            <p id="humidity" class="text-lg font-bold">--%</p>
+                        </div>
+                        <div class="bg-black/20 p-4 rounded-xl">
+                            <p class="text-sm opacity-70">Wind Speed</p>
+                            <p id="windSpeed" class="text-lg font-bold">-- km/h</p>
+                        </div>
+                        <div class="bg-black/20 p-4 rounded-xl">
+                            <p class="text-sm opacity-70">Pressure</p>
+                            <p id="pressure" class="text-lg font-bold">-- hPa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Forecast -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4">5-Day Forecast</h3>
+                    <div id="forecast" class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        <!-- Forecast cards will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" 
+             class="max-w-md mx-auto mt-8 bg-red-500/80 text-white p-4 rounded-xl text-center hidden">
+            City not found. Please try again.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
